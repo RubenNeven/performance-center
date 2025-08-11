@@ -1,4 +1,4 @@
-import {Component, EventEmitter, input, Input, Output, signal, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, input, Output, signal, ViewEncapsulation} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 
 import {type Event} from '../../../models/models';
