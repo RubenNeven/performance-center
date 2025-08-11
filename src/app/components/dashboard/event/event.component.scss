@@ -1,0 +1,63 @@
+@use "abstracts/variables" as *;
+
+.event {
+  display: flex;
+  flex-direction: column;
+
+  &:not(:last-child){
+    border-bottom: 1px solid black;
+  }
+
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: .35rem .65rem;
+
+    .details-visible {
+      font-weight: bold;
+      color: hsl($palette-primary-h, $palette-primary-s, $palette-primary-l);
+    }
+  }
+
+  &__name {
+    flex: 1;
+    text-align: left;
+  }
+
+  .delete__icon {
+    color: $color-gray;
+    cursor: pointer;
+  }
+
+  .delete__icon {
+    color: $color-gray;
+    cursor: pointer;
+  }
+
+  &__details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: .35rem .65rem;
+  }
+
+  &__detail {
+    padding-bottom: .5rem;
+
+    label{
+      display: block;
+      font-size: .88rem;
+      line-height: .88rem;
+      font-weight: 400;
+      color: gray;
+      padding-bottom: .1rem;
+    }
+  }
+}
+
+
+
+
+

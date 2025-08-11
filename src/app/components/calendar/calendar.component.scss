@@ -1,0 +1,11 @@
+.calendar {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+  }
+}

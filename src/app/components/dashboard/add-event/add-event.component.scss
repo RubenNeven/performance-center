@@ -1,0 +1,12 @@
+@use "abstracts/variables" as *;
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+
+}
+
+.confirm {
+  text-align: center
+}

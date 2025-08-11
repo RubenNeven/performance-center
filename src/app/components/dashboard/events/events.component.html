@@ -1,0 +1,10 @@
+<div class="events">
+  <div class="events__header">
+    <h3>Events</h3>
+    <mat-icon (click)="openDialog()" class="icon-action" fontIcon="add"></mat-icon>
+  </div>
+
+  @for (event of events(); track event.id) {
+    <app-event [event]="event" (deleteEvent)="deleteEvent($event)"></app-event>
+  }
+</div>

@@ -1,0 +1,19 @@
+@use "abstracts/variables" as *;
+
+.events {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  box-shadow: $box-shadow;
+  background-color: hsl($palette-surface-lowest-h,$palette-surface-lowest-s, $palette-surface-lowest-l );
+
+  &__header {
+    margin-bottom: .5rem;
+    padding-bottom: .25rem;
+    border-bottom: 1px solid $color-gray;
+    display: flex;
+    justify-content: space-between;
+
+  }
+}

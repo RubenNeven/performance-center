@@ -1,0 +1,29 @@
+<article class="widget__summary">
+  <mat-icon [class]="{
+      'widget__icon--cycling': training.sport === 'cycling',
+      'widget__icon--running': training.sport === 'running',
+      'widget__icon--swimming': training.sport === 'swimming',
+    }" class="material-symbols-outlined training__icon">
+    {{ getIcon(training.sport) }}
+  </mat-icon>
+  <div class="widget__header">
+    <h3 [class.widget__title--highlighted]="isSelected" class="widget__title">
+      <a> {{ training.title }}</a>
+    </h3>
+    <span class="widget__date">{{ training.date }}</span>
+  </div>
+</article>
+
+<ul class="widget__details">
+  @for (stat of training.stats; track stat.id) {
+    <li>
+      <div class="widget__stat">
+        <span class="widget__label">{{ stat.label }}</span>
+        <div class="widget__value">{{ stat.value }}
+          <span>{{ getUnit(stat.label) }}</span>
+        </div>
+      </div>
+    </li>
+  }
+</ul>
+

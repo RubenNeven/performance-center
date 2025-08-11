@@ -1,0 +1,85 @@
+@use "abstracts/variables" as *;
+
+.widget {
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  background-color: hsl($palette-surface-lowest-h,$palette-surface-lowest-s, $palette-surface-lowest-l );
+  padding: 1rem 1.5rem;
+  box-shadow: $box-shadow;
+  border-left: 8px solid transparent;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%
+  }
+
+  &__title {
+
+
+    &--highlighted {
+      color: $primary-color;
+    }
+  }
+
+  &__date {
+    color: #43423f;
+    font-size: .75rem
+  }
+
+  &__icon {
+
+    &--cycling {
+      color: $color-purple;
+    }
+
+    &--running {
+      color: $color-green;
+    }
+
+    &--swimming {
+      color: $color-blue;
+    }
+  }
+
+  &__summary {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+  }
+
+  &__details {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+
+    li {
+      flex: 1;
+    }
+  }
+
+  &__label {
+    color: $color-gray;
+    font-size: .75rem;
+  }
+
+  &__value {
+    font-size: 1.25rem;
+  }
+
+}
+
+.status-open {
+  border-color: $color-light-gray;
+}
+
+.status-completed {
+  border-color: $color-green;
+}
+
+.status-not-completed {
+  border-color: $color-red;
+}

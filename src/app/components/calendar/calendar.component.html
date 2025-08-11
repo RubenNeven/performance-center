@@ -1,0 +1,12 @@
+<div class="calendar">
+  <div class="calendar__list">
+    @for (training of trainings; track training.id) {
+      <app-training-widget [training]="training" (selectedTraining)="onSelectTraining($event)" [isSelected]="isSelected(training.id)"></app-training-widget>
+    }
+  </div>
+
+  @if (selectedTraining) {
+    <app-training-details [training]="selectedTraining" (trainingId)="onTrainingDone($event)"></app-training-details>
+  }
+</div>
+

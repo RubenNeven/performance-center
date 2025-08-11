@@ -1,0 +1,30 @@
+
+@use "abstracts/variables" as *;
+
+.details {
+
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  background-color: hsl($palette-surface-lowest-h,$palette-surface-lowest-s, $palette-surface-lowest-l );
+
+  padding: 1rem 1.5rem;
+  box-shadow: $box-shadow;
+  height: fit-content;
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    p {
+      line-height: 1.6rem;
+    }
+  }
+
+  &__actions {
+    text-align: right;
+
+  }
+}

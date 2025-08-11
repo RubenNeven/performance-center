@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Add Event</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()">
+    <app-control class="control" label="Event Name">
+      <input type="text" [(ngModel)]="eventName" name="name"/>
+    </app-control>
+
+    <app-control class="control" label="Date">
+      <input type="date" [(ngModel)]="eventDate" name="date"/>
+    </app-control>
+
+    <app-control class="control" label="Type">
+      <select [(ngModel)]="eventType" name="type">
+        @for (type of eventTypes; track type) {
+          <option name="type">{{ type }}</option>
+        }
+      </select>
+    </app-control>
+
+    <app-control class="control" label="Distance">
+      <input type="number" [(ngModel)]="eventDistance" name="distance"/>
+    </app-control>
+
+    <app-control class="control" label="Description">
+      <textarea rows="5" [(ngModel)]="eventDescription" name="description"></textarea>
+    </app-control>
+
+    <div class="confirm">
+      <button appButton type="submit">Add</button>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
