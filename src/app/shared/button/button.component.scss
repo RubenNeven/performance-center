@@ -1,20 +1,13 @@
 @use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
 
 :host {
-  display: inline-block;
-  padding: 8px 16px;
-  font-size: 1rem;
-  text-align: center;
-  cursor: pointer;
-  background-color: hsl($palette-primary-h, $palette-primary-s, $palette-primary-l);;
-  color: $color-white;
-  font-weight: 500;
-  border: none;
-  border-radius: 5px;
-  min-width: 78px;
+  //@include button(hsl($palette-primary-h, $palette-primary-s, $palette-primary-l));
+
+
 
   &:hover {
-    background-color: $buttonBackground-hover;
+    background-color: hsl($buttonBackground-hover);
   }
 }
 

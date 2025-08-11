@@ -1,4 +1,5 @@
 @use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
 
 .event {
   display: flex;
@@ -54,6 +55,10 @@
       color: gray;
       padding-bottom: .1rem;
     }
+  }
+
+  .delete-event {
+    @include button($palette-on-surface-default, $color-black, $color-light-gray)
   }
 }
 

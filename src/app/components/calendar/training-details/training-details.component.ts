@@ -1,12 +1,9 @@
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {type Training} from '../../../models/models';
-import {ButtonComponent} from '../../../shared/button/button.component';
-
 
 @Component({
   selector: 'app-training-details',
   imports: [
-    ButtonComponent
   ],
   templateUrl: './training-details.component.html',
   styleUrl: './training-details.component.scss',

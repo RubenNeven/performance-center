@@ -1,0 +1,19 @@
+@use "abstracts/variables" as *;
+
+@mixin button($color, $textColor, $hoverColor) {
+  background-color: $color;
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  color: $textColor;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  min-width: 78px;
+
+  &:hover{
+    background-color: $hoverColor;
+  }
+}

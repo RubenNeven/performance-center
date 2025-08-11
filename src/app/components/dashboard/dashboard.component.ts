@@ -1,7 +1,8 @@
-import {Component, inject, model} from '@angular/core';
+import {Component, inject, model, signal} from '@angular/core';
 import {EventsComponent} from './events/events.component';
 import {EventService} from '../../services/event.service';
 import {ChartComponent} from '../chart/chart.component';
+import {type Event} from '../../models/models';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,9 +17,6 @@ import {ChartComponent} from '../chart/chart.component';
 export class DashboardComponent {
 
   private eventService = inject(EventService);
-  events = model(this.eventService.events);
+  events = this.eventService.events;
 
-/*  deleteEvent(inputEvent: Event){
-    this.events = this.eventService.events.filter( (event) => event.id !== inputEvent.id);
-  }*/
 }

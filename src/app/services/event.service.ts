@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 import {Event, EventType} from '../models/models';
 
 @Injectable({
@@ -7,13 +7,13 @@ import {Event, EventType} from '../models/models';
 
 export class EventService {
 
-  events: Event[] = [
+  private _events = signal<Event[]>([
     {
       id: 1,
       name: 'Bear Trail',
       description: 'Ultra Trail',
       type: EventType.RUNNING,
-      date:  new Date(2025, 7, 11),
+      date: new Date(2025, 7, 11),
       distance: 83
     },
     {
@@ -21,7 +21,7 @@ export class EventService {
       name: 'Meerdaalwoud Trail',
       description: 'Trail',
       type: EventType.RUNNING,
-      date:  new Date(2025, 9, 25),
+      date: new Date(2025, 9, 25),
       distance: 50
     },
     {
@@ -29,9 +29,16 @@ export class EventService {
       name: 'Ironman Hamburg',
       description: 'Full distance triathlon',
       type: EventType.TRIATLON,
-      date:  new Date(2026, 5, 7),
+      date: new Date(2026, 5, 7),
       distance: 150
     }
-  ];
+  ]);
+
+  events = this._events.asReadonly();
+
+
+  deleteEvent(eventId: number) {
+    this._events.update((events) => events.filter((event) => event.id !== eventId));
+  }
 
 }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, inject, input, Output} from '@angular/core';
+import {Component, EventEmitter, inject, input, model, Output} from '@angular/core';
 import {type Event} from '../../../models/models';
 import {EventComponent} from '../event/event.component';
 import {MatIconModule} from '@angular/material/icon';
@@ -33,7 +33,7 @@ export class EventsComponent {
       width: '600px'
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result) this.eventService.events.push(result);
+      if (result) this.eventService.events().push(result);
     });
   }
 
