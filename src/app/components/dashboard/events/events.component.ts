@@ -1,5 +1,5 @@
 import {Component, EventEmitter, inject, input, model, Output} from '@angular/core';
-import {type Event} from '../../../models/models';
+import {type Event} from '../../../shared/models/models';
 import {EventComponent} from '../event/event.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
@@ -25,15 +25,16 @@ export class EventsComponent {
   @Output() eventToDelete = new EventEmitter();
 
   deleteEvent(event: Event) {
-    this.eventToDelete.emit(event);
+    this.eventService.deleteEvent(event.id).subscribe();
   }
 
   openDialog() {
     const dialogRef = this.dialog.open(AddEventComponent, {
-      width: '600px'
+      width: '600px',
+      position: {top: '50px'}
     });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) this.eventService.events().push(result);
+    dialogRef.afterClosed().subscribe(event => {
+      if (event) this.eventService.addEvent(event).subscribe();
     });
   }
 

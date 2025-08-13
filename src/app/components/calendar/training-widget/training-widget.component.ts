@@ -1,12 +1,14 @@
 import {Component, EventEmitter, HostBinding, Input, Output, ViewEncapsulation} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
-import {Training} from '../../../models/models';
+import {Training} from '../../../shared/models/models';
+import {DatePipe} from '@angular/common';
 
 
 @Component({
   selector: 'app-training-widget',
   imports: [
-    MatIconModule
+    MatIconModule,
+    DatePipe
   ],
   templateUrl: './training-widget.component.html',
   styleUrl: './training-widget.component.scss',
@@ -21,19 +23,20 @@ export class TrainingWidgetComponent {
   @Input({required: true}) training!: Training;
   @Output() selectedTraining = new EventEmitter<Training>();
   @Input() isSelected?: boolean;
+  @Input() completedTraining?: Training;
+
 
   @HostBinding('class') get className() {
     return `${this.getStatusClass()}`
   }
 
   getStatusClass() {
-    switch (this.training.status) {
-      case 'completed':
-        return 'status-completed';
-      case 'not-completed':
-        return 'status-not-completed';
-      default:
-        return 'status-open';
+    if (this.training.gpxFilePath){
+      return 'status-completed'
+    } else if (this.training.planned.date < new Date() && !this.training.gpxFilePath){
+      return 'status-not-completed'
+    } else {
+      return 'status-open'
     }
   }
 
@@ -65,6 +68,14 @@ export class TrainingWidgetComponent {
 
   onSelectTraining(training: Training) {
     this.selectedTraining.emit(training);
+  }
+
+  onCompletedTraining(training: Training){
+    this.completedTraining = training;
+  }
+
+  get trainingToDisplay(): Training {
+    return  this.completedTraining ?? this.training;
   }
 
 }

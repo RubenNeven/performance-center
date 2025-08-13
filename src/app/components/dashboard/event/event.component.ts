@@ -1,6 +1,6 @@
 import {Component, EventEmitter, inject, input, Output, signal, ViewEncapsulation} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
-import {type Event} from '../../../models/models';
+import {type Event} from '../../../shared/models/models';
 import {DatePipe} from '@angular/common';
 import {EventService} from '../../../services/event.service';
 
@@ -23,8 +23,7 @@ export class EventComponent {
   @Output() deleteEvent = new EventEmitter();
 
   onDeleteEvent(){
-    console.log('DELETE EVENT: ' + `${this.event().id}`)
-    this.eventService.deleteEvent(this.event().id);
+    this.eventService.deleteEvent(this.event().id).subscribe();
   }
 
   onToggleDetails() {

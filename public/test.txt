@@ -1,0 +1,2 @@
+Dit is een testbestand.
+Als je dit kunt zien via je browser, werkt assets/ correct.

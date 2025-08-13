@@ -1,10 +1,24 @@
 <div class="details__description">
   <h3>Description</h3>
   <p>
-    {{ training.description }}
+    {{ training.planned.description }}
   </p>
 </div>
-<div class="details__actions">
-  <button class="button" (click)="setTrainingDone(training.id)">Done</button>
-</div>
+
+<form>
+  <p>
+    <button type="button" (click)="uploadFile()"  >Upload GPX</button>
+  </p>
+  <input type="file"  class="file-input" id="upload-file" (change)="addAttachment($event)"/>
+
+</form>
+@if (training.gpxFilePath) {
+  <app-map [training]="training" ></app-map>
+}
+
+
+
+
+
+
 

@@ -1,4 +1,5 @@
 @use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
 
 form {
   display: flex;
@@ -8,5 +9,9 @@ form {
 }
 
 .confirm {
-  text-align: center
+  text-align: center;
+
+  button {
+    @include button(hsl($palette-primary-h, $palette-primary-s, $palette-primary-l), $color-white, hsl($buttonBackground-hover))
+  }
 }

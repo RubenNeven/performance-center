@@ -1,8 +1,7 @@
 import {Component, inject} from '@angular/core';
-import {EventType} from '../../../models/models';
+import {EventType} from '../../../shared/models/models';
 import {FormsModule} from '@angular/forms';
 import {ControlComponent} from '../../../shared/control/control.component';
-import {ButtonComponent} from '../../../shared/button/button.component';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
@@ -11,7 +10,6 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
   imports: [
     FormsModule,
     ControlComponent,
-    ButtonComponent,
     MatDialogModule,
   ],
   templateUrl: './add-event.component.html',
@@ -34,7 +32,6 @@ export class AddEventComponent {
 
 
   onSubmit() {
-    console.log('TEST')
     const event = {
       id: Math.random(),
       name: this.eventName,
