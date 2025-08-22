@@ -31,6 +31,7 @@ export const trainingStatusOptionsProvider: Provider = {
 
 export type Training = {
   id: number;
+  firebaseKey?: string;
   sport: 'running' | 'swimming' | 'cycling';
   status: TrainingStatus;
   gpxFilePath?: string;

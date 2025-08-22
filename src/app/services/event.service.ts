@@ -13,7 +13,7 @@ import {Store} from '@ngrx/store';
 
 export class EventService {
 
-  baseUrl = 'https://performance-center-92b36-default-rtdb.europe-west1.firebasedatabase.app/'
+  baseUrl = 'https://performance-center-92b36-default-rtdb.europe-west1.firebasedatabase.app'
 
   private http = inject(HttpClient);
   _events = signal<Event[]>([])

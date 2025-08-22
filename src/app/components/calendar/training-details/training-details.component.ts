@@ -1,5 +1,5 @@
-import {Component, EventEmitter, inject, Input, Output, ViewEncapsulation} from '@angular/core';
-import {type Training, TRAINING_STATUS_OPTIONS, trainingStatusOptionsProvider} from '../../../shared/models/models';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {type Training} from '../../../shared/models/models';
 import {FormsModule} from '@angular/forms';
 import {MapComponent} from '../../../shared/map/map.component';
 
@@ -11,9 +11,6 @@ import {MapComponent} from '../../../shared/map/map.component';
   ],
   templateUrl: './training-details.component.html',
   styleUrl: './training-details.component.scss',
-  providers: [
-    trainingStatusOptionsProvider
-  ],
   encapsulation: ViewEncapsulation.None,
   host: {
     class: 'details'
