@@ -9,3 +9,15 @@
     gap: 1rem
   }
 }
+
+@media (max-width: 2000px) {
+  .calendar{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 1500px) {
+  .calendar{
+    grid-template-columns: 1fr;
+  }
+}

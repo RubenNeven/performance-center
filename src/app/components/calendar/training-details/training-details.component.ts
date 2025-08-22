@@ -21,7 +21,7 @@ import {MapComponent} from '../../../shared/map/map.component';
 })
 export class TrainingDetailsComponent {
   @Input({required: true}) training!: Training;
-  @Output() outputTraining = new EventEmitter<Training>();
+
 
   uploadFile() {
     document.getElementById('upload-file')?.click();

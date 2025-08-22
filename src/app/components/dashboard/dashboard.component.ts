@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {EventsComponent} from './events/events.component';
 import {EventService} from '../../services/event.service';
-import {ChartComponent} from '../chart/chart.component';
+import {ChartComponent} from '../../shared/chart/chart.component';
 
 @Component({
   selector: 'app-dashboard',

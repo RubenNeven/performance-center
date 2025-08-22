@@ -5,6 +5,6 @@
   </div>
 
   @for (event of events(); track event.id) {
-    <app-event [event]="event" (deleteEvent)="deleteEvent($event)"></app-event>
+    <app-event [event]="event"></app-event>
   }
 </div>

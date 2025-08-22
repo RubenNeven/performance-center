@@ -64,6 +64,7 @@ export type Event = {
   type: EventType;
   distance?: number;
   description: string;
+  firebaseKey?: string
 }
 
 export enum EventType {
@@ -77,4 +78,37 @@ export type Time = {
   hours: number;
   minutes: number;
   seconds: number;
+}
+
+export type HealthData = {
+  date: string;
+  hr: number;
+  weight: number;
+}
+
+
+export type AuthResponseData = {
+  kind: string;
+  idToken: string;
+  email: string;
+  refreshToken: string;
+  expiresIn: string;
+  localId: string;
+  registered?: string;
+}
+
+export class User {
+  constructor(
+    public email: string,
+    public id: string,
+    private _token: string,
+    private _tokenExpirationDate: Date
+  ) {}
+
+  get token(){
+    if (!this._tokenExpirationDate || new Date() > this._tokenExpirationDate){
+      return null;
+    }
+    return this._token;
+  }
 }

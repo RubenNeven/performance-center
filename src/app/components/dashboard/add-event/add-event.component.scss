@@ -12,6 +12,11 @@ form {
   text-align: center;
 
   button {
-    @include button(hsl($palette-primary-h, $palette-primary-s, $palette-primary-l), $color-white, hsl($buttonBackground-hover))
+    @include button(hsl($palette-primary-h, $palette-primary-s, $palette-primary-l), $color-white, hsl($buttonBackground-hover));
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: .5;
+    }
   }
 }

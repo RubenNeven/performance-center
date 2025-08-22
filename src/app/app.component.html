@@ -1,3 +1,7 @@
+@if (error()) {
+  <app-error-modal [error]="error()"></app-error-modal>
+}
+
 <app-header></app-header>
 <main>
   <router-outlet></router-outlet>

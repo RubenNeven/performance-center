@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Amsterdam Marathon",
+    "date": "2025-10-19T09:00:00Z",
+    "type": "Running",
+    "distance": 42.195,
+    "description": "De jaarlijkse marathon door het centrum van Amsterdam."
+  },
+  {
+    "id": 2,
+    "name": "Tour de Veluwe",
+    "date": "2025-09-15T08:30:00Z",
+    "type": "Cycling",
+    "distance": 120,
+    "description": "Een uitdagende fietstocht door de bossen van de Veluwe."
+  },
+  {
+    "id": 3,
+    "name": "Zeeuwse Zwemtocht",
+    "date": "2025-07-20T10:00:00Z",
+    "type": "Swimming",
+    "distance": 3.5,
+    "description": "Open water zwemwedstrijd langs de kust van Zeeland."
+  },
+  {
+    "id": 4,
+    "name": "Ironman Maastricht",
+    "date": "2025-08-25T07:00:00Z",
+    "type": "Triatlon",
+    "distance": null,
+    "description": "Een volledige triatlon bestaande uit zwemmen, fietsen en hardlopen."
+  }
+]

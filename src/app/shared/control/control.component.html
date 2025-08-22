@@ -1,2 +1,5 @@
 <label>{{ label() }}</label>
 <ng-content select="input, textarea, select"></ng-content>
+@if (error()) {
+  <p>{{ error() }}</p>
+}

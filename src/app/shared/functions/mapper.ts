@@ -2,14 +2,15 @@ import {EventDto} from '../models/dto';
 import {type Event, EventType} from '../models/models';
 
 export function mapEvent(eventDto: EventDto){
-  const { id, name, distance, type, description, date } = eventDto;
+  const { id, name, distance, type, description, date, firebaseKey } = eventDto;
   const event: Event = {
     id: id,
     name: name,
     distance: distance,
     type: mapEventType(type),
     description: description,
-    date: new Date(date)
+    date: new Date(date),
+    firebaseKey: firebaseKey
   }
   return event;
 }

@@ -1,4 +1,3 @@
-
 export type EventDto = {
   id: number;
   name: string;
@@ -6,4 +5,5 @@ export type EventDto = {
   type: string;
   distance?: number;
   description: string;
+  firebaseKey?: string;
 }

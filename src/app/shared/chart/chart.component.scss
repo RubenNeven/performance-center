@@ -1,0 +1,26 @@
+@use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
+
+
+.canvas {
+  background-color: hsl($palette-surface-lowest-h, $palette-surface-lowest-s, $palette-surface-lowest-l);
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  display: block;
+  width: 100%;
+}
+
+.health-graph {
+  height: 500px;
+}
+
+.data-button {
+  text-align: center;
+
+  button {
+    margin-top: 1rem;
+    @include button(hsl($palette-primary-h, $palette-primary-s, $palette-primary-l), $color-white, hsl($buttonBackground-hover))
+  }
+
+}
+

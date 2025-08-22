@@ -1,0 +1,31 @@
+<header>
+  <div>
+    ATHLETE INSIGHTS
+  </div>
+  <nav>
+
+    <ul>
+      @if (user) {
+        @for (item of menuItems; track item.id) {
+          <li>
+            <a routerLink="{{item.route}}" routerLinkActive="active">
+              {{ item.title }}
+            </a>
+          </li>
+        }
+      } @else {
+        <li>
+          <a routerLink="auth">
+            Login
+          </a>
+        </li>
+      }
+    </ul>
+
+  </nav>
+  <a (click)="onAuthClick()">
+    <button>
+      {{user ? 'Logout' : 'Login'}}
+    </button>
+  </a>
+</header>

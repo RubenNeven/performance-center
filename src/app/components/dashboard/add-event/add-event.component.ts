@@ -1,8 +1,10 @@
 import {Component, inject} from '@angular/core';
 import {EventType} from '../../../shared/models/models';
-import {FormsModule} from '@angular/forms';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ControlComponent} from '../../../shared/control/control.component';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {type Event} from '../../../shared/models/models';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-add-event',
@@ -11,6 +13,7 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
     FormsModule,
     ControlComponent,
     MatDialogModule,
+    ReactiveFormsModule
   ],
   templateUrl: './add-event.component.html',
   styleUrl: './add-event.component.scss',
@@ -24,22 +27,45 @@ export class AddEventComponent {
 
   private dialogRef = inject(MatDialogRef<AddEventComponent>);
 
-  eventName = '';
-  eventDate = '';
-  eventDistance: number = 0;
-  eventType = EventType.TRIATLON;
-  eventDescription = '';
+  form = new FormGroup({
+    name: new FormControl('', {
+      validators: [Validators.required]
+    }),
+    date: new FormControl(formatDate(new Date(), 'yyyy-MM-dd', 'en'), {
+      validators: [Validators.required]
+    }),
+    type: new FormControl<EventType>(EventType.RUNNING ,{
+      validators: [Validators.required]
+    }),
+    distance: new FormControl('', {
+      validators: [Validators.required, Validators.min(0)]
+    }),
+    description: new FormControl('')
+  })
 
 
   onSubmit() {
     const event = {
-      id: Math.random(),
-      name: this.eventName,
-      type: this.eventType,
-      distance: this.eventDistance,
-      date: this.eventDate,
-      description: this.eventDescription
+      id: Math.floor(Math.random() * 99),
+      ...this.form.value
     }
     this.dialogRef.close(event);
+  }
+
+
+  showErrorMessage(controlName: string) {
+    let control = this.form.get(controlName);
+    if (control?.touched && control.dirty && control?.errors){
+      if (control.errors['required']){
+        return `Required`;
+      } else if (control.errors['min']){
+        console.log(control.errors['min']['min'])
+        return `Must be greater than ${control.errors['min']['min']}`;
+      } else {
+        return ''
+      }
+    } else {
+      return '';
+    }
   }
 }

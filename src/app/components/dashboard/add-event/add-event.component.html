@@ -1,32 +1,32 @@
 <h2 mat-dialog-title>Add Event</h2>
 <mat-dialog-content>
-  <form (ngSubmit)="onSubmit()">
-    <app-control class="control" label="Event Name">
-      <input type="text" [(ngModel)]="eventName" name="name"/>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-control label="Event Name" [error]="showErrorMessage('name')">
+      <input type="text" name="name" formControlName="name"/>
     </app-control>
 
-    <app-control class="control" label="Date">
-      <input type="date" [(ngModel)]="eventDate" name="date"/>
+    <app-control label="Date" [error]="showErrorMessage('date')" [class.control-error]="">
+      <input type="date" name="date" formControlName="date"/>
     </app-control>
 
-    <app-control class="control" label="Type">
-      <select [(ngModel)]="eventType" name="type">
+    <app-control label="Type" [error]="showErrorMessage('type')">
+      <select name="type" formControlName="type">
         @for (type of eventTypes; track type) {
           <option name="type">{{ type }}</option>
         }
       </select>
     </app-control>
 
-    <app-control class="control" label="Distance">
-      <input type="number" [(ngModel)]="eventDistance" name="distance"/>
+    <app-control label="Distance" [error]="showErrorMessage('distance')">
+      <input type="number" name="distance" formControlName="distance"/>
     </app-control>
 
-    <app-control class="control" label="Description">
-      <textarea rows="5" [(ngModel)]="eventDescription" name="description"></textarea>
+    <app-control label="Description">
+      <textarea rows="5" name="description" formControlName="description"></textarea>
     </app-control>
 
     <div class="confirm">
-      <button type="submit">Add</button>
+      <button type="submit" [disabled]="form.invalid">Save</button>
     </div>
 
   </form>
