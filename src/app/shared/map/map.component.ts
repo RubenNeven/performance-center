@@ -1,8 +1,9 @@
-import {AfterViewInit, Component, inject, input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {AfterViewInit, Component, inject, input, OnChanges, signal, SimpleChanges} from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {Training} from '../models/models';
 import 'leaflet-gpx';
+import {FileService} from '../../services/file.service';
 
 @Component({
   selector: 'app-map',
@@ -12,9 +13,9 @@ import 'leaflet-gpx';
 })
 export class MapComponent implements OnChanges, AfterViewInit {
 
-
-
   training = input<Training>();
+  private url = signal<string>('')
+  private fileService = inject(FileService);
 
   private map!: L.Map;
   private gpxLayer?: L.Layer;
@@ -26,24 +27,28 @@ export class MapComponent implements OnChanges, AfterViewInit {
   }
 
   private loadGpx() {
-    const gpxFile = this.training()?.gpxFilePath;
+    this.getFile();
 
-    if (this.gpxLayer) {
-      this.map.removeLayer(this.gpxLayer);
-    }
+    setTimeout(() => {
+      const gpxFile = this.url();
+      console.log(gpxFile)
+
+      if (this.gpxLayer) {
+        this.map.removeLayer(this.gpxLayer);
+      }
 
 
-    if (!gpxFile) return;
+      if (!gpxFile) return;
 
-    this.gpxLayer = new (L as any).GPX(gpxFile, { async: true })
-      .on('loaded', (e: any) => {
-        this.map.fitBounds(e.target.getBounds());
-      });
+      this.gpxLayer = new (L as any).GPX(gpxFile, { async: true })
+        .on('loaded', (e: any) => {
+          this.map.fitBounds(e.target.getBounds());
+        });
 
-    if (this.gpxLayer){
-      this.gpxLayer.addTo(this.map);
-    }
-
+      if (this.gpxLayer){
+        this.gpxLayer.addTo(this.map);
+      }
+    }, 1000)
   }
 
   ngAfterViewInit(): void {
@@ -55,8 +60,20 @@ export class MapComponent implements OnChanges, AfterViewInit {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> contributors'
     }).addTo(this.map);
-
-
   }
 
+  getFile() {
+    const trainingValue = this.training();
+    if (!trainingValue?.gpxFilePath) return;
+
+    if (trainingValue && trainingValue.gpxFilePath) {
+      const path = trainingValue.gpxFilePath;
+      this.fileService.downloadFile(path)
+        .then(url => {
+          this.url.set(url);
+          console.log(this.url())
+        })
+        .catch(err => console.error('Fout bij downloaden GPX'));
+    }
+  }
 }

@@ -3,6 +3,7 @@ import {type Training} from '../../../shared/models/models';
 import {FormsModule} from '@angular/forms';
 import {MapComponent} from '../../../shared/map/map.component';
 
+
 @Component({
   selector: 'app-training-details',
   imports: [
@@ -17,7 +18,9 @@ import {MapComponent} from '../../../shared/map/map.component';
   }
 })
 export class TrainingDetailsComponent {
+
   @Input({required: true}) training!: Training;
+
 
 
   uploadFile() {
@@ -30,5 +33,6 @@ export class TrainingDetailsComponent {
     this.training.gpxFilePath = file?.name;
     this.training.status = 'completed';
   }
+
 
 }
