@@ -1,0 +1,33 @@
+
+
+<form #authForm=ngForm (ngSubmit)="onSubmit(authForm)">
+
+  @if (errorMessage.message) {
+    <div style="display: block; background-color: red; color: white; padding: 1rem 2rem; margin-bottom: 1rem;">
+      <p>{{errorMessage.message}}</p>
+    </div>
+  }
+
+  @if (user()) {
+    <div style="display: block; background-color: red; color: white; padding: 1rem 2rem; margin-bottom: 1rem;">
+      <p>{{user()?.email}}</p>
+      <p>{{user()?.token}}</p>
+    </div>
+  }
+
+
+
+  <app-control label="Email">
+    <input type="text" id="email" ngModel name="email" required/>
+  </app-control>
+
+  <app-control label="Password">
+    <input type="password" id="password" ngModel name="password" required/>
+  </app-control>
+
+
+
+  <div class="login">
+    <button type="submit">Login</button>
+  </div>
+</form>

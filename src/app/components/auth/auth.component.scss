@@ -1,0 +1,23 @@
+@use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
+
+form {
+  width: 30rem;
+  margin: 0 auto;
+}
+
+app-control {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.login{
+  text-align: center;
+
+  button {
+    @include button(hsl($palette-primary-h, $palette-primary-s, $palette-primary-l), $color-white, hsl($buttonBackground-hover));
+
+  }
+}
+
+

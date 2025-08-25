@@ -1,0 +1,16 @@
+<h2>Add Data</h2>
+<form [formGroup]="form" class="data-form" (ngSubmit)="onSave()">
+  <app-control label="Date">
+    <input type="date" formControlName="date">
+  </app-control>
+
+  <app-control label="Heart Rate" [error]="showError('hr')">
+    <input type="number" formControlName="hr">
+  </app-control>
+
+  <app-control label="Weight" [error]="showError('weight')">
+    <input type="number" formControlName="weight">
+  </app-control>
+
+  <button type="submit" [disabled]="form.invalid">Save</button>
+</form>
