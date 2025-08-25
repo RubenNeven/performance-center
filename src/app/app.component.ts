@@ -1,9 +1,9 @@
-import {Component, inject, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, inject} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 import {HeaderComponent} from './shared/header/header.component';
 import {ErrorService} from './services/error.service';
 import {ErrorModalComponent} from './shared/modal/error-modal/error-modal.component';
-import {AuthService} from './services/auth.service';
+
 
 @Component({
   selector: 'app-root',
