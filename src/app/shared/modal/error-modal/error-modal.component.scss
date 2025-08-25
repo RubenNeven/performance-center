@@ -1,0 +1,23 @@
+@use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
+
+.error {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  h1 {
+    color: red;
+  }
+
+  .confirmation-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    button {
+      @include button($color-red, $color-white, $color-gray)
+    }
+  }
+}
