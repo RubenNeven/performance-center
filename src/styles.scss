@@ -52,3 +52,12 @@ input.ng-invalid.ng-touched.ng-dirty {
   border: 1px solid $color-red;
 }
 
+.leaflet-control-layers-toggle {
+  background-image: none !important;
+}
+.leaflet-retina .leaflet-control-layers-toggle {
+  background-image: none !important;
+}
+.leaflet-default-icon-path {
+  background-image: none !important;
+}
