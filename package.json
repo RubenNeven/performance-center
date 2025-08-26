@@ -25,6 +25,7 @@
     "echarts": "^6.0.0",
     "firebase": "^11.10.0",
     "leaflet": "^1.9.4",
+    "leaflet-defaulticon-compatibility": "^0.1.2",
     "leaflet-gpx": "^2.2.0",
     "ng2-charts": "^8.0.0",
     "ngrx-store-localstorage": "^19.0.2",
