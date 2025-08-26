@@ -5,13 +5,6 @@ import {Training} from '../models/models';
 import 'leaflet-gpx';
 import {FileService} from '../../services/file.service';
 
-L.Icon.Default.imagePath = '.';
-
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-});
 
 @Component({
   selector: 'app-map',
