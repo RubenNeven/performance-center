@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, inject, input, OnChanges, signal, SimpleChanges} from '@angular/core';
 import * as L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import {Training} from '../models/models';
 import 'leaflet-gpx';
 import {FileService} from '../../services/file.service';
